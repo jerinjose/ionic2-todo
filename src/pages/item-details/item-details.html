@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!selectedItem">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Item Details</ion-title>
+    <ion-buttons end>
+      <button ion-button color="primary" >Save</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      Header
+    </ion-card-content>
+  </ion-card>
+  <ion-item>
+   <ion-label>Long Description</ion-label>
+   <ion-textarea rows="30" placeholder="enter long description here..."></ion-textarea>
+ </ion-item>
+</ion-content>
