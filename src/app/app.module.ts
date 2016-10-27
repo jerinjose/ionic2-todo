@@ -5,6 +5,8 @@ import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { TodoListPage } from '../pages/todo-list/todo-list';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ModalsContentPage } from '../pages/modal/modal-ionic';
+import { Storage } from '@ionic/storage';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +27,6 @@ import { ModalsContentPage } from '../pages/modal/modal-ionic';
     TodoListPage,
     ModalsContentPage
   ],
-  providers: []
+  providers: [Storage]
 })
 export class AppModule {}

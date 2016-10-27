@@ -12,45 +12,15 @@
 
 
 <ion-content class="card-background-page">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
-  <ion-card (click)="itemTapped()">
+  <ion-card (click)="itemTapped(company)" *ngFor="let company of companies">
     <img src="img/images.jpg"/>
-    <div class="card-title">Alti Source</div>
+    <div class="card-title">{{company.company}}</div>
     <div class="card-subtitle">
-      43 Urgent<br/>
-      41 Important<br/>
-      4 Follow Up
+      {{company.urgent}} Urgent,<br/>{{company.important}} Important,<br/>{{company.followup}} Follow Up
     </div>
   </ion-card>
-
-  <ion-card>
-    <img src="img/images1.jpg"/>
-    <div class="card-title">Amsterdam</div>
-     <div class="card-subtitle">
-      43 Urgent<br/>
-      41 Important<br/>
-      4 Follow Up
-    </div>
-  </ion-card>
-
-  <ion-card>
-    <img src="img/images2.jpg"/>
-    <div class="card-title">San Francisco</div>
-     <div class="card-subtitle">
-      43 Urgent<br/>
-      41 Important<br/>
-      4 Follow Up
-    </div>
-  </ion-card>
-
-  <ion-card>
-    <img src="img/images3.jpg"/>
-    <div class="card-title">Madison</div>
-     <div class="card-subtitle">
-      43 Urgent<br/>
-      41 Important<br/>
-      4 Follow Up
-    </div>
-  </ion-card>
-
 </ion-content>

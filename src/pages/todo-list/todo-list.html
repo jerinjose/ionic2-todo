@@ -8,167 +8,62 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content class="todo-list">
   <ion-list no-border>
     <ion-list-header>
       Urgent
     </ion-list-header>
-    <ion-item-sliding #item>
+    <ion-item-sliding #item *ngFor='let todo of ugtTodo'>
       <ion-item>
-        <ion-toggle checked="false"></ion-toggle>
-        <ion-label (click)="itemTapped()">
-          Muggle Studies
+        <ion-toggle [(ngModel)]="todo.completed" (ionChange)="updateValue(todo)"></ion-toggle>
+        <ion-label (click)="itemTapped(todo)" [ngClass]="{'stripe-label': todo.completed}">
+          {{todo.header}}
         </ion-label>
-        <ion-icon name='brush' item-left (click)="itemTapped()"></ion-icon>
+        <ion-icon color="danger" name='brush' item-left (click)="itemTapped(todo)"></ion-icon>
       </ion-item>
       <ion-item-options side="right">
-        <button color="danger" ion-button (click)="unread(item)">Remove</button>
+        <button color="danger" ion-button (click)="removeTodo(todo)">Remove</button>
       </ion-item-options>
     </ion-item-sliding>
-    <ion-item-sliding #item>
-      <ion-item>
-        <ion-toggle checked="false"></ion-toggle>
-        <ion-label>
-          Muggle Studies
-        </ion-label>
-        <ion-icon name='brush' item-left></ion-icon>
-      </ion-item>
-      <ion-item-options side="right">
-        <button color="danger" ion-button (click)="unread(item)">Remove</button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <ion-item-sliding #item>
-      <ion-item>
-        <ion-toggle checked="false"></ion-toggle>
-        <ion-label>
-          Muggle Studies
-        </ion-label>
-        <ion-icon name='brush' item-left></ion-icon>
-      </ion-item>
-      <ion-item-options side="right">
-        <button color="danger" ion-button (click)="unread(item)">Remove</button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <ion-item-sliding #item>
-      <ion-item>
-        <ion-toggle checked="false"></ion-toggle>
-        <ion-label>
-          Muggle Studies
-        </ion-label>
-        <ion-icon name='brush' item-left></ion-icon>
-      </ion-item>
-      <ion-item-options side="right">
-        <button color="danger" ion-button (click)="unread(item)">Remove</button>
-      </ion-item-options>
-    </ion-item-sliding>
+    <ion-item [hidden]="(ugtTodo && ugtTodo.length > 0)">No Urgent items</ion-item>
   </ion-list>
 
   <ion-list>
     <ion-list-header>
       Important
     </ion-list-header>
-    <ion-item-sliding #item>
+    <ion-item-sliding *ngFor='let todo of imtTodo'>
       <ion-item>
-        <ion-toggle checked="false"></ion-toggle>
-        <ion-label>
-          Muggle Studies
+        <ion-toggle [(ngModel)]="todo.completed" (ionChange)="updateValue(todo)"></ion-toggle>
+        <ion-label (click)="itemTapped(todo)" [ngClass]="{'stripe-label': todo.completed}">
+          {{todo.header}}
         </ion-label>
-        <ion-icon name='brush' item-left></ion-icon>
+        <ion-icon color="primary" name='brush' item-left (click)="itemTapped(todo)"></ion-icon>
       </ion-item>
       <ion-item-options side="right">
-        <button color="danger" ion-button (click)="unread(item)">Remove</button>
+        <button color="danger" ion-button (click)="removeTodo(todo)">Remove</button>
       </ion-item-options>
     </ion-item-sliding>
-    <ion-item-sliding #item>
-      <ion-item>
-        <ion-toggle checked="false"></ion-toggle>
-        <ion-label>
-          Muggle Studies
-        </ion-label>
-        <ion-icon name='brush' item-left></ion-icon>
-      </ion-item>
-      <ion-item-options side="right">
-        <button color="danger" ion-button (click)="unread(item)">Remove</button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <ion-item-sliding #item>
-      <ion-item>
-        <ion-toggle checked="false"></ion-toggle>
-        <ion-label>
-          Muggle Studies
-        </ion-label>
-        <ion-icon name='brush' item-left></ion-icon>
-      </ion-item>
-      <ion-item-options side="right">
-        <button color="danger" ion-button (click)="unread(item)">Remove</button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <ion-item-sliding #item>
-      <ion-item>
-        <ion-toggle checked="false"></ion-toggle>
-        <ion-label>
-          Muggle Studies
-        </ion-label>
-        <ion-icon name='brush' item-left></ion-icon>
-      </ion-item>
-      <ion-item-options side="right">
-        <button color="danger" ion-button (click)="unread(item)">Remove</button>
-      </ion-item-options>
-    </ion-item-sliding>
+      <ion-item [hidden]="(imtTodo && imtTodo.length > 0)">No Important items</ion-item>
   </ion-list>
 
   <ion-list>
     <ion-list-header>
       Follow Up
     </ion-list-header>
-    <ion-item-sliding #item>
+    <ion-item-sliding *ngFor='let todo of fowTodo'>
       <ion-item>
-        <ion-toggle checked="false"></ion-toggle>
-        <ion-label>
-          Muggle Studies
+        <ion-toggle [(ngModel)]="todo.completed" (ionChange)="updateValue(todo)"></ion-toggle>
+        <ion-label (click)="itemTapped(todo)" [ngClass]="{'stripe-label': todo.completed}">
+          {{todo.header}}
         </ion-label>
-        <ion-icon name='brush' item-left></ion-icon>
+        <ion-icon color="dark" name='brush' item-left (click)="itemTapped(todo)"></ion-icon>
       </ion-item>
       <ion-item-options side="right">
-        <button color="danger" ion-button (click)="unread(item)">Remove</button>
+        <button color="danger" ion-button (click)="removeTodo(todo)">Remove</button>
       </ion-item-options>
     </ion-item-sliding>
-    <ion-item-sliding #item>
-      <ion-item>
-        <ion-toggle checked="false"></ion-toggle>
-        <ion-label>
-          Muggle Studies
-        </ion-label>
-        <ion-icon name='brush' item-left></ion-icon>
-      </ion-item>
-      <ion-item-options side="right">
-        <button color="danger" ion-button (click)="unread(item)">Remove</button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <ion-item-sliding #item>
-      <ion-item>
-        <ion-toggle checked="false"></ion-toggle>
-        <ion-label>
-          Muggle Studies
-        </ion-label>
-        <ion-icon name='brush' item-left></ion-icon>
-      </ion-item>
-      <ion-item-options side="right">
-        <button color="danger" ion-button (click)="unread(item)">Remove</button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <ion-item-sliding #item>
-      <ion-item>
-        <ion-toggle checked="false"></ion-toggle>
-        <ion-label>
-          Muggle Studies
-        </ion-label>
-        <ion-icon name='brush' item-left></ion-icon>
-      </ion-item>
-      <ion-item-options side="right">
-        <button color="danger" ion-button (click)="unread(item)">Remove</button>
-      </ion-item-options>
-    </ion-item-sliding>
+      <ion-item [hidden]="(fowTodo && fowTodo.length > 0)">No Follow Up items</ion-item>
   </ion-list>
 
 

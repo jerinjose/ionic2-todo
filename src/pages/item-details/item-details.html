@@ -5,7 +5,7 @@
     </button>
     <ion-title>Item Details</ion-title>
     <ion-buttons end>
-      <button ion-button color="primary" >Save</button>
+      <button ion-button color="primary" (click)="updateTodo()">Save</button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -13,11 +13,11 @@
 <ion-content>
   <ion-list>
     <ion-item>
-      <ion-textarea rows="2" placeholder="Header"></ion-textarea>
+      <ion-textarea rows="2" placeholder="Header" [(ngModel)]="todoDetails.header"></ion-textarea>
     </ion-item>
 
     <ion-item>
-      <ion-textarea rows="10" placeholder="Enter description here..."></ion-textarea>
+      <ion-textarea rows="10" placeholder="Enter description here..." [(ngModel)]="todoDetails.description"></ion-textarea>
     </ion-item>
   </ion-list>
 </ion-content>
